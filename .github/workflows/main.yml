@@ -85,8 +85,8 @@ jobs:
 
       - name: Build
         run: |
-          nuget restore
-          msbuild
+          dotnet restore Qurre
+          dotnet build --no-restore
         
       - name: Convert sarif for uploading to GitHub
         uses: security-code-scan/security-code-scan-results-action@main
