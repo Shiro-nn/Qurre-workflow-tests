@@ -68,29 +68,29 @@ jobs:
 
   secutity-scan:
     needs: ["format-code"]
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: nuget/setup-nuget@v1.0.5
+      - uses: microsoft/setup-msbuild@v1.0.2
 
-      # - name: Setup .NET Core
-      #   uses: actions/setup-dotnet@v4
-      #   with:
-      #     dotnet-version: | 
-      #       3.1.x
-      #       9.0.x
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: | 
+            3.1.x
 
       - name: Set up projects for analysis
-        uses: security-code-scan/security-code-scan-add-action@v1
-
-      - name: Restore dependencies
-        run: dotnet restore Qurre
+        uses: security-code-scan/security-code-scan-add-action@main
 
       - name: Build
-        run: dotnet build --no-restore
+        run: |
+          nuget restore
+          msbuild
         
       - name: Convert sarif for uploading to GitHub
-        uses: security-code-scan/security-code-scan-results-action@v1
-
+        uses: security-code-scan/security-code-scan-results-action@main
+        
       - name: Upload sarif
         uses: github/codeql-action/upload-sarif@v1
 
