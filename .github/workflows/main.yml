@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  security-events: write
 
 jobs:
   format-code:
@@ -67,7 +68,7 @@ jobs:
       #     git push --force-with-lease origin HEAD:${{ github.head_ref || github.ref_name }}
 
   analyze:
-    name: Analyze
+    name: CodeQL – ${{ matrix.language }}
     needs: ["format-code"]
     runs-on: ubuntu-latest
     strategy:
@@ -77,6 +78,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
@@ -85,8 +88,6 @@ jobs:
       uses: github/codeql-action/autobuild@v3
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-    - name: Upload CodeQL Analysis
-      uses: github/codeql-action/upload-sarif@v3
 
   secutity-scan:
     needs: ["analyze"]
