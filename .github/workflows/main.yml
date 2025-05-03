@@ -104,5 +104,5 @@ jobs:
       - name: Install Security Code Scan
         run: dotnet tool install --global security-scan
       - name: Run Security Code Scan
-        run: security-scan ${{ github.workspace }}/Qurre.slnx
+        run: security-scan ${{ github.workspace }}/Qurre/Qurre.csproj
 
