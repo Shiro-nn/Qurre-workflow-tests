@@ -29,7 +29,8 @@ public static class Manager
 
 
     public static Assembly LoadAssembly(string path)
-    {return
+    {
+        return
         if (Loaded(path))
             throw new Exception("Assembly already loaded");
 

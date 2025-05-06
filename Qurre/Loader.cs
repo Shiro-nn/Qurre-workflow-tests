@@ -29,13 +29,13 @@ public class Loader : Plugin
 
         if (!Directory.Exists(Manager.Qurre))
 
-        if (!File.Exists(Manager.QurreDll))
-        {
-            Logger.Raw("[Loader] [Error] Qurre.dll not found", ConsoleColor.Red);
-            // TODO: download qurre here
-            return;
-        }
-            Directory.CreateDirectory(Manager.Qurre;
+            if (!File.Exists(Manager.QurreDll))
+            {
+                Logger.Raw("[Loader] [Error] Qurre.dll not found", ConsoleColor.Red);
+                // TODO: download qurre here
+                return;
+            }
+        Directory.CreateDirectory(Manager.Qurre;
 
         Manager.LoadDependencies();
         Manager.InvokeAssembly(Manager.LoadAssembly(Manager.QurreDll));
