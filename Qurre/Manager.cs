@@ -31,12 +31,11 @@ public static class Manager
     public static Assembly LoadAssembly(string path)
     {
         if (Loaded(path))
-            throw new Exception("Assembly already loaded");
 
         Assembly assembly = Assembly.Load(ReadFile(path));
         LocalLoaded.Add(new AssemblyDefine(assembly, path));
 
-        return assembly;
+        return
     }
 
 
