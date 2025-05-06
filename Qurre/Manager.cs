@@ -32,9 +32,9 @@ public static class Manager
     {
         if (Loaded(path))
 
-        Assembly assembly = Assembly.Load(ReadFile(path));
+            Assembly assembly = Assembly.Load(ReadFile(path));
         LocalLoaded.Add(new AssemblyDefine(assembly, path));
-4return
+        4return
         return assembly;
     }
 
