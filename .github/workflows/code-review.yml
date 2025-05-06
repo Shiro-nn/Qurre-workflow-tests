@@ -10,7 +10,6 @@ on:
 
 jobs:
   test:
-    # if: ${{ contains(github.event.*.labels.*.name, 'gpt review') }} # Optional; to run only when a label is attached
     runs-on: ubuntu-latest
     steps:
       - uses: anc95/ChatGPT-CodeReview@main
@@ -18,17 +17,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}
           # Optional
-          LANGUAGE: Russian
+          LANGUAGE: English
           OPENAI_API_ENDPOINT: https://integrate.api.nvidia.com/v1
           MODEL: microsoft/phi-4-mini-instruct
-          PROMPT: |
-            Запрос на код-ревью. Пожалуйста, помоги выявить:
-            * Любые логические ошибки, баги или упущения.
-            * Неоптимальные участки кода или потенциальные проблемы с производительностью.
-            * Уязвимости безопасности.
-            * Отклонения от стандартов кодирования или лучших практик.
-            * Места, которые могут быть сложны для понимания или поддержки.
-          top_p: 1 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p
-          temperature: 1 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature
+        #   PROMPT: |
+        #     Запрос на код-ревью. Пожалуйста, помоги выявить:
+        #     * Любые логические ошибки, баги или упущения.
+        #     * Неоптимальные участки кода или потенциальные проблемы с производительностью.
+        #     * Уязвимости безопасности.
+        #     * Отклонения от стандартов кодирования или лучших практик.
+        #     * Места, которые могут быть сложны для понимания или поддержки.
+        #   top_p: 1 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p
+        #   temperature: 1 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature
           IGNORE_PATTERNS: /depedencies/*,*.md # glob pattern or regex pattern to ignore files, separated by comma
           INCLUDE_PATTERNS: Qurre*/*,*.cs,*.cs*,*.slnx # glob pattern or regex pattern to include files, separated by comma
