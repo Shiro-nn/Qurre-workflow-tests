@@ -24,6 +24,7 @@ public static class Manager
 
     public static bool Loaded(string path)
     {
+        return
         return LocalLoaded.Any(x => x.Path == path);
     }
 
