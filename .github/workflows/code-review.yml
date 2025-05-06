@@ -20,7 +20,7 @@ jobs:
           # Optional
           LANGUAGE: Russian
           OPENAI_API_ENDPOINT: https://integrate.api.nvidia.com/v1
-          MODEL: deepseek-ai/deepseek-r1 # https://platform.openai.com/docs/models
+          MODEL: microsoft/phi-4-mini-instruct
           PROMPT: |
             Запрос на код-ревью. Пожалуйста, помоги выявить:
             * Любые логические ошибки, баги или упущения.
@@ -30,7 +30,5 @@ jobs:
             * Места, которые могут быть сложны для понимания или поддержки.
           top_p: 1 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p
           temperature: 1 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature
-          max_tokens: 10000
-          MAX_PATCH_LENGTH: 10000 # if the patch/diff length is large than MAX_PATCH_LENGTH, will be ignored and won't review. By default, with no MAX_PATCH_LENGTH set, there is also no limit for the patch/diff length.
           IGNORE_PATTERNS: /depedencies/*,*.md # glob pattern or regex pattern to ignore files, separated by comma
-          INCLUDE_PATTERNS: Qurre.slnx,*.cs,*.cs*,*.slnx # glob pattern or regex pattern to include files, separated by comma
+          INCLUDE_PATTERNS: Qurre*/*,*.cs,*.cs*,*.slnx # glob pattern or regex pattern to include files, separated by comma
