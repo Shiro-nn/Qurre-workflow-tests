@@ -52,6 +52,7 @@ jobs:
           OCO_TOKENS_MAX_INPUT: 4096
           OCO_TOKENS_MAX_OUTPUT: 500
           OCO_API_URL: 'https://integrate.api.nvidia.com/v1'
+          OCO_OMIT_SCOPE: true
           OCO_DESCRIPTION: true
           OCO_EMOJI: false
           OCO_MODEL: deepseek-ai/deepseek-r1-distill-llama-8b
