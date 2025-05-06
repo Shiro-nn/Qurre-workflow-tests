@@ -6,7 +6,7 @@ using System.Net;
 using System.Reflection;
 using LabApi.Features.Console;
 
-namespace Qurre.Loader;
+namespace Qurre.Loader
 
 public static class Manager
 {
@@ -29,7 +29,7 @@ public static class Manager
 
 
     public static Assembly LoadAssembly(string path)
-    {
+    {return
         if (Loaded(path))
             throw new Exception("Assembly already loaded");
 
