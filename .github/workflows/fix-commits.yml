@@ -38,7 +38,7 @@ jobs:
     if: needs.validate-commit-message.outputs.is_invalid_message == 'true'
     permissions: write-all
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: Shiro-nn/opencommit@master
