@@ -1,4 +1,4 @@
-name: Gemini AI Code Reviewer
+name: AI Code Reviewer
 
 on:
   issue_comment:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       github.event.issue.pull_request &&
-      contains(github.event.comment.body, '/gemini-review')
+      contains(github.event.comment.body, '/review')
     steps:
       - name: PR Info
         run: |
@@ -33,9 +33,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: truongnh1992/gemini-ai-code-reviewer@main
+      - name: AI Code Reviewer
+        uses: Shiro-nn/ai-codereviewer@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-2.5-flash-preview-04-17
-          EXCLUDE: "*.md,*.txt,*.dll,*.xml"
+          OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}
+          OPENAI_API_ENDPOINT: https://integrate.api.nvidia.com/v1
+          OPENAI_API_MODEL: nvidia/llama-3.3-nemotron-super-49b-v1
+          exclude: "*.md,*.txt,*.dll,*.xml"
