@@ -25,7 +25,7 @@ public class Loader : Plugin
 
     public override void Enable()
     {
-        Logger.Raw("[Loader] [Qurre] Initialization...", ConsoleColor.Yellow);
+        Logger.Raw("[Loader] [Qurre] Initialization...", ConsoleColor.Yellow)
 
         if (!Directory.Exists(Manager.Qurre))
             Directory.CreateDirectory(Manager.Qurre);
