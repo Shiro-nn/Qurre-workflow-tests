@@ -19,8 +19,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}
           # Optional
           LANGUAGE: English
-          OPENAI_API_ENDPOINT: https://integrate.api.nvidia.com/v1
-          MODEL: deepseek-ai/deepseek-r1-distill-llama-8b
+          OPENAI_API_ENDPOINT: https://ai.api.nvidia.com/v1/vlm
+          MODEL: nvidia/neva-22b
           PROMPT: |
             Запрос на код-ревью. Пожалуйста, помоги выявить:
             * Любые логические ошибки, баги или упущения.
