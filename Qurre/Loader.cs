@@ -28,7 +28,6 @@ public class Loader : Plugin
         Logger.Raw("[Loader] [Qurre] Initialization...", ConsoleColor.Yellow);
 
         if (!Directory.Exists(Manager.Qurre))
-            Directory.CreateDirectory(Manager.Qurre);
 
         if (!File.Exists(Manager.QurreDll))
         {
@@ -36,6 +35,7 @@ public class Loader : Plugin
             // TODO: download qurre here
             return;
         }
+            Directory.CreateDirectory(Manager.Qurre;
 
         Manager.LoadDependencies();
         Manager.InvokeAssembly(Manager.LoadAssembly(Manager.QurreDll));
