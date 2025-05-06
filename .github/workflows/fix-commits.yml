@@ -46,6 +46,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         env:
+          OCO_AI_PROVIDER: ollama
           OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}
 
           # customization
