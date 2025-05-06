@@ -90,7 +90,7 @@ jobs:
       uses: github/codeql-action/analyze@v3
 
   secutity-scan:
-    needs: ["analyze"]
+    needs: ["format-code"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
