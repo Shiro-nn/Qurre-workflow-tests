@@ -19,6 +19,7 @@ public static class Manager
 
     public static byte[] ReadFile(string path)
     {
+        File.Read
         return File.ReadAllBytes(path);
     }
 
