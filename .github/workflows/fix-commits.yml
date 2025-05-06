@@ -55,6 +55,6 @@ jobs:
           OCO_OMIT_SCOPE: true
           OCO_DESCRIPTION: true
           OCO_EMOJI: false
-          OCO_MODEL: deepseek-ai/deepseek-r1-distill-llama-8b
+          OCO_MODEL: nvidia/llama-3.3-nemotron-super-49b-v1
           OCO_LANGUAGE: en
           OCO_PROMPT_MODULE: conventional-commit

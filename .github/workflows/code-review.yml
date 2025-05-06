@@ -20,7 +20,7 @@ jobs:
           # Optional
           LANGUAGE: English
           OPENAI_API_ENDPOINT: https://integrate.api.nvidia.com/v1
-          MODEL: deepseek-ai/deepseek-r1-distill-llama-8b
+          MODEL: nvidia/llama-3.3-nemotron-super-49b-v1
           PROMPT: |
             Запрос на код-ревью. Пожалуйста, помоги выявить:
             * Любые логические ошибки, баги или упущения.
