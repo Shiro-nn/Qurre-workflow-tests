@@ -28,7 +28,5 @@ jobs:
         #     * Уязвимости безопасности.
         #     * Отклонения от стандартов кодирования или лучших практик.
         #     * Места, которые могут быть сложны для понимания или поддержки.
-          top_p: 1 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p
-          temperature: 1 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature
           IGNORE_PATTERNS: /depedencies/*,*.md # glob pattern or regex pattern to ignore files, separated by comma
           INCLUDE_PATTERNS: Qurre*/*,*.cs,*.cs*,*.slnx # glob pattern or regex pattern to include files, separated by comma
