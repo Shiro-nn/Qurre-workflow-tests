@@ -47,7 +47,7 @@ jobs:
 
         env:
           OCO_AI_PROVIDER: ollama
-          OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}
+          OCO_API_KEY: ${{ secrets.AI_API_KEY }}
 
           # customization
           OCO_TOKENS_MAX_INPUT: 4096
