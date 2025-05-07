@@ -40,4 +40,4 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}
           OPENAI_API_ENDPOINT: https://integrate.api.nvidia.com/v1
           OPENAI_API_MODEL: nvidia/llama-3.3-nemotron-super-49b-v1
-          exclude: "*.md,*.txt,*.dll,*.xml"
+          exclude: ".md,.txt,.dll,.xml"

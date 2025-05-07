@@ -9,24 +9,20 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  review:
+  code-review:
     timeout-minutes: 90
     runs-on: ubuntu-latest
     steps:
-      - uses: anc95/ChatGPT-CodeReview@main
-        env:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: AI Code Reviewer
+        uses: Shiro-nn/ai-code-reviewer@main
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}
-          # Optional
-          LANGUAGE: English
           OPENAI_API_ENDPOINT: https://integrate.api.nvidia.com/v1
-          MODEL: nvidia/llama-3.3-nemotron-super-49b-v1
-          PROMPT: |
-            Запрос на код-ревью. Пожалуйста, помоги выявить:
-            * Любые логические ошибки, баги или упущения.
-            * Неоптимальные участки кода или потенциальные проблемы с производительностью.
-            * Уязвимости безопасности.
-            * Отклонения от стандартов кодирования или лучших практик.
-            * Места, которые могут быть сложны для понимания или поддержки.
-          IGNORE_PATTERNS: /depedencies/*,*.md # glob pattern or regex pattern to ignore files, separated by comma
-          INCLUDE_PATTERNS: Qurre*/*,*.cs,*.cs*,*.slnx # glob pattern or regex pattern to include files, separated by comma
+          OPENAI_API_MODEL: nvidia/llama-3.3-nemotron-super-49b-v1
+          exclude: ".md,.txt,.dll,.xml"
