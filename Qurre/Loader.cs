@@ -28,7 +28,7 @@ public class Loader : Plugin
         Logger.Raw("[Loader] [Qurre] Initialization...", ConsoleColor.Yellow);
 
         if (!Directory.Exists(Manager.Qurre))
-            Directory.CreateDirectory(Manager.Qurre);
+            Directory.CreateDirenager.Qurre);
 
         if (!File.Exists(Manager.QurreDll))
         {
