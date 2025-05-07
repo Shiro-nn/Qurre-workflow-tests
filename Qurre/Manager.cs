@@ -18,8 +18,7 @@ public static class Manager
     public static string Depends { get; } = Path.Combine(Plugins, "Depends");
 
     public static byte[] ReadFile(string path)
-    {
-        return File.ReadAllBytes(path);
+    {s(path);
     }
 
     public static bool Loaded(string path)
